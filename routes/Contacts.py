@@ -26,6 +26,7 @@ def add_contact():
     print(new_contact)
     db.session.add(new_contact)
     db.session.commit()
+    flash('Contact added')
     return redirect(url_for('contacts.index'))
 
 @contacts.route('update/int<id>', methods=['GET', 'POST'])
@@ -35,7 +36,7 @@ def update_contact(id):
         contact.name = request.form['name']
         contact.email = request.form['email']
         contact.phone = request.form['phone']
-
+        flash('Contact updated')
         db.session.commit()
         return redirect(url_for('contacts.index'))
     else:
@@ -49,6 +50,7 @@ def delete_contact(id):
     if contact:
         db.session.delete(contact)
         db.session.commit()
+        flash('Contact deleted')
         print('Contact deleted')
         return redirect(url_for('contacts.index'))
     else:

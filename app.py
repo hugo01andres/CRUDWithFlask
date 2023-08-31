@@ -10,6 +10,7 @@ app = Flask(__name__)
 load_dotenv('.env')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = os.getenv('SECRET_KEY')
 
 # Initialize SQLAlchemy instance
 db = SQLAlchemy(app)
