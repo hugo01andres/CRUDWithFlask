@@ -1,5 +1,21 @@
-<h1>Home page</h1>
+<form action="/contacts/add" method="POST">
+    <input type="text" name="name" placeholder="Write your fullname">
+    <input type="text" name="email" placeholder="Write your email">
+    <input type="text" name="phone" placeholder="Write your phone">
 
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis facilis, esse culpa quidem aliquam
-    corporis dignissimos neque voluptatum. Tenetur enim aliquid minima autem debitis magni quis maiores sunt
-    accusantium!</p>
+    <button>Save</button>
+</form>
+
+<div>
+    {% for contact in contacts %}
+        <div>
+            <h3>{{ contact.name }}</h3>
+            <div>
+                <a href="{{ url_for('contacts.update_contact', id = contact.id) }}">Update</a>
+                <a href="{{ url_for('contacts.delete_contact', id = contact.id) }}">Delete</a>
+            </div>
+            <p>{{ contact.email }}</p>
+            <p>{{ contact.phone }}</p>
+        </div>
+    {% endfor %}
+</div>

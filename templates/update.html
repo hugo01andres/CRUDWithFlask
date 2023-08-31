@@ -1,0 +1,9 @@
+
+<form action="{{ url_for('contacts.update_contact', id=contact.id) }}" method="POST">
+
+    <input type="text" name="name" placeholder="Write your fullname" value="{{contact.name}}">
+    <input type="text" name="email" placeholder="Write your email" value="{{contact.email}}">
+    <input type="text" name="phone" placeholder="Write your phone" value="{{contact.phone}}">
+
+    <button>Save</button>
+</form>
