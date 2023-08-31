@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+*.egg-info
+*.egg
+*.pyc
+
+# Virtual environment
+venv/
+.venv/
+ENV/
+
+# IDE-specific
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Compiled files
+*.pyc
+*.pyo
+
+# Database
+*.db
+
+# Local development environment settings
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Alembic configuration
+alembic.ini
+env.py
+script.py.mako
