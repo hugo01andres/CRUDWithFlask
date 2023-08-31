@@ -15,7 +15,7 @@ app.secret_key = os.getenv('SECRET_KEY')
 # Initialize SQLAlchemy instance
 db = SQLAlchemy(app)
 
-# Initialize Flask-Migrate
+# Initialize Flask-Migrate but not working
 migrate = Migrate(app, db)
 
 
