@@ -1,7 +1,66 @@
-
 {% extends 'layout.html' %}
 
 {% block content %}
+<style>
+    /* CSS Styles */
+    .alert {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .alert-info {
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+        color: #31708f;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button.save-button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button.save-button:hover {
+        background-color: #45a049;
+    }
+
+    .contacts-list {
+        margin-top: 20px;
+    }
+
+    .contact {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .contact h3 {
+        margin-top: 0;
+    }
+
+    .contact-options a {
+        margin-right: 10px;
+        text-decoration: none;
+        color: #007bff;
+    }
+
+    .contact-options a:hover {
+        text-decoration: underline;
+        color: #0056b3;
+    }
+</style>
 
 {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -18,16 +77,16 @@
     <input type="text" name="email" placeholder="Write your email">
     <input type="text" name="phone" placeholder="Write your phone">
 
-    <button>Save</button>
+    <button class="save-button">Save</button>
 </form>
 
-<div>
+<div class="contacts-list">
     {% for contact in contacts %}
-        <div>
+        <div class="contact">
             <h3>{{ contact.name }}</h3>
-            <div>
-                <a href="{{ url_for('contacts.update_contact', id = contact.id) }}">Update</a>
-                <a href="{{ url_for('contacts.delete_contact', id = contact.id) }}">Delete</a>
+            <div class="contact-options">
+                <a href="{{ url_for('contacts.update_contact', id=contact.id) }}">Update</a>
+                <a href="{{ url_for('contacts.delete_contact', id=contact.id) }}">Delete</a>
             </div>
             <p>{{ contact.email }}</p>
             <p>{{ contact.phone }}</p>
